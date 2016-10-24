@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>share</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="share-icon">
+    <div class="shares">
+      <a class="icon share">分享</a>
+      <a class="icon1 weibo js-share" title="分享"data-type="weibo" href="javascript:;"></a>
+      <a class="icon1 wechat" href="javascript:;">
+        <img class="qr" src="img/wechat.png">
+      </a>
+      <a class="icon1 twitter js-share" data-type="twitter" href="javascript:;"></a>
+    </div>
+    <a class="icon loading" title="下载客户端" href="javascript:;">
+      <img class="qr" src="img/loading.jpg">
+    </a>
+    <a class="icon booking" title="订阅公众号" href="javascript:;">
+      <img class="qr" src="img/booking.jpg">
+    </a>
+    <div class="icon to-top js-toTop" title="回到顶部"></div>
+  </div> 
+</body>
+</html>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/share.js"></script>
+<script>
+$(function(){
+  $('.js-share').on('click', function () {
+    var type = $(this).data('type');
+    share.run(type);
+  });
+  $(window).scroll(function(){
+    if($(window).scrollTop() >= 50) {
+      $('.js-toTop').fadeIn(100);
+    }
+    else{
+      $('.js-toTop').fadeOut();
+    }
+  });
+  $('.js-toTop').click(function(){
+    $('html,body').animate({ scrollTop: 0 }, 500);
+  })
+})
+</script>
